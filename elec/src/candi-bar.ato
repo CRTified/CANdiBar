@@ -1,21 +1,38 @@
-from "generics/connectors.ato" import Connector2Pin, Connector4Pin
+from "generics/connectors.ato" import Connector2Pin, Connector4Pin, Connector6Pin
 from "generics/interfaces.ato" import Power, CAN
 from "generics/resistors.ato" import Resistor
 from "_430450600.ato" import _430450600
+from "DB127V_minus_5_period_08_minus_2P_minus_GN_minus_S.ato" import DB127V_minus_5_period_08_minus_2P_minus_GN_minus_S
+
+component MountingHole_M3_Pad:
+    signal pad ~ pin 1
+    footprint = "MountingHole_3.2mm_M3_DIN965_Pad"
+
+component PinHeader_2x3_254 from Connector6Pin:
+    signal p1 ~ pin 1
+    signal p2 ~ pin 2
+    signal p3 ~ pin 3
+    signal p4 ~ pin 4
+    signal p5 ~ pin 5
+    signal p6 ~ pin 6
+    footprint = "PinHeader_2x03_P2.54mm_Vertical"
+    designator_prefix = "J"
+    lcsc_id = "C492420"
+    mpn = "C492420"
 
 component PinHeader_2x2_254 from Connector4Pin:
-    p1 ~ pin 1
-    p2 ~ pin 2
-    p3 ~ pin 3
-    p4 ~ pin 4
+    signal p1 ~ pin 1
+    signal p2 ~ pin 2
+    signal p3 ~ pin 3
+    signal p4 ~ pin 4
     footprint = "PinHeader_2x02_P2.54mm_Vertical"
     designator_prefix = "J"
     lcsc_id = "C32713275"
     mpn = "C32713275"
 
 component PinHeader_1x2_254 from Connector2Pin:
-    p1 ~ pin 1
-    p2 ~ pin 2
+    signal p1 ~ pin 1
+    signal p2 ~ pin 2
     footprint = "PinHeader_1x02_P2.54mm_Vertical"
     designator_prefix = "JP"
     lcsc_id = "C7494857"
@@ -36,12 +53,19 @@ module CANdiBarPort:
     can_right = new CAN
     pwr = new Power
 
-    bypassL = new PinHeader_1x2_254
-    bypassH = new PinHeader_1x2_254
-    bypassH.p1 ~ can_left.CANH
-    bypassL.p1 ~ can_left.CANL
-    bypassH.p2 ~ can_right.CANH
-    bypassL.p2 ~ can_right.CANL
+    r_term = new Resistor
+    r_term.footprint = "R0603"
+    r_term.value = 120Ω +/- 1%
+
+    bypass_H = new PinHeader_2x2_254
+    bypass_H.p1 ~ can_left.CANH
+    bypass_H.p2 ~ can_right.CANH
+    bypass_H.p4 ~ r_term.p1
+    r_term.p2 ~ can_right.CANL
+
+    bypass_L = new PinHeader_1x2_254
+    bypass_L.p1 ~ can_left.CANL
+    bypass_L.p2 ~ can_right.CANL
 
     # Connect MicroFit output
     mf_conn = new _430450600
@@ -61,42 +85,45 @@ module CANdiBar:
     can_4 = new CAN
     can_5 = new CAN
     can_6 = new CAN
-    can_7 = new CAN
 
-    can_term_left = new CAN_Termination
-    can_term_right = new CAN_Termination
+    mount_1 = new MountingHole_M3_Pad; mount_1.pad ~ pwr.gnd
+    mount_2 = new MountingHole_M3_Pad; mount_2.pad ~ pwr.gnd
+    mount_3 = new MountingHole_M3_Pad; mount_3.pad ~ pwr.gnd
+    mount_4 = new MountingHole_M3_Pad; mount_4.pad ~ pwr.gnd
 
-    can_term_left.can_e ~ can_1
+    power_input1 = new DB127V_minus_5_period_08_minus_2P_minus_GN_minus_S
+    power_input1._1 ~ pwr.gnd
+    power_input1._2 ~ pwr.vcc
+
+    power_input2 = new DB127V_minus_5_period_08_minus_2P_minus_GN_minus_S
+    power_input2._1 ~ pwr.gnd
+    power_input2._2 ~ pwr.vcc
+
+    can_term = new CAN_Termination
+    can_term.can_e ~ can_6
 
     port_1 = new CANdiBarPort
     port_1.pwr ~ pwr
-    port_1.can_left ~ can_1
-    port_1.can_right ~ can_2
+    port_1.can_left ~ can_2
+    port_1.can_right ~ can_1
 
     port_2 = new CANdiBarPort
     port_2.pwr ~ pwr
-    port_2.can_left ~ can_2
-    port_2.can_right ~ can_3
+    port_2.can_left ~ can_3
+    port_2.can_right ~ can_2
 
     port_3 = new CANdiBarPort
     port_3.pwr ~ pwr
-    port_3.can_left ~ can_3
-    port_3.can_right ~ can_4
+    port_3.can_left ~ can_4
+    port_3.can_right ~ can_3
 
     port_4 = new CANdiBarPort
     port_4.pwr ~ pwr
-    port_4.can_left ~ can_4
-    port_4.can_right ~ can_5
+    port_4.can_left ~ can_5
+    port_4.can_right ~ can_4
 
     port_5 = new CANdiBarPort
     port_5.pwr ~ pwr
-    port_5.can_left ~ can_5
-    port_5.can_right ~ can_6
-
-    port_6 = new CANdiBarPort
-    port_6.pwr ~ pwr
-    port_6.can_left ~ can_6
-    port_6.can_right ~ can_7
-
-    can_term_right.can_e ~ can_7
+    port_5.can_left ~ can_6
+    port_5.can_right ~ can_5
 

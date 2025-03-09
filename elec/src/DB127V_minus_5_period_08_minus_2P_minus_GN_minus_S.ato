@@ -1,0 +1,10 @@
+component DB127V_minus_5_period_08_minus_2P_minus_GN_minus_S:
+    # component DB127V_minus_5_period_08_minus_2P_minus_GN_minus_S
+    footprint = "CONN-TH_2P-P5.08"
+    lcsc_id = "C3018698"
+    mpn = "C3018698"
+    designator_prefix = "J"
+    # pins
+    signal _1 ~ pin 1
+    signal _2 ~ pin 2
+

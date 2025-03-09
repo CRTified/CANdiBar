@@ -1,7 +1,7 @@
 ato-version: ^0.2.0
 builds:
   default:
-    entry: elec/src/candi-bar.ato:CaNdiBar
+    entry: elec/src/candi-bar.ato:CANdiBar
 dependencies:
   - name: generics
     version_spec: '@93de318f38c5acb079fb5cfc9d5a06dc5f02b157'
