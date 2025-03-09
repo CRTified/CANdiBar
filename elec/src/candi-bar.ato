@@ -1,2 +1,102 @@
-module CaNdiBar:
-    signal gnd
+from "generics/connectors.ato" import Connector2Pin, Connector4Pin
+from "generics/interfaces.ato" import Power, CAN
+from "generics/resistors.ato" import Resistor
+from "_430450600.ato" import _430450600
+
+component PinHeader_2x2_254 from Connector4Pin:
+    p1 ~ pin 1
+    p2 ~ pin 2
+    p3 ~ pin 3
+    p4 ~ pin 4
+    footprint = "PinHeader_2x02_P2.54mm_Vertical"
+    designator_prefix = "J"
+    lcsc_id = "C32713275"
+    mpn = "C32713275"
+
+component PinHeader_1x2_254 from Connector2Pin:
+    p1 ~ pin 1
+    p2 ~ pin 2
+    footprint = "PinHeader_1x02_P2.54mm_Vertical"
+    designator_prefix = "JP"
+    lcsc_id = "C7494857"
+    mpn = "C7494857"
+
+module CAN_Termination:
+    can_e = new CAN
+    sel = new PinHeader_1x2_254
+    r_term = new Resistor
+    r_term.footprint = "R0603"
+    r_term.value = 120Ω +/- 1%
+    can_e.CANH ~ r_term.p1
+    r_term.p2 ~ sel.p1
+    sel.p2 ~ can_e.CANL
+
+module CANdiBarPort:
+    can_left = new CAN
+    can_right = new CAN
+    pwr = new Power
+
+    bypassL = new PinHeader_1x2_254
+    bypassH = new PinHeader_1x2_254
+    bypassH.p1 ~ can_left.CANH
+    bypassL.p1 ~ can_left.CANL
+    bypassH.p2 ~ can_right.CANH
+    bypassL.p2 ~ can_right.CANL
+
+    # Connect MicroFit output
+    mf_conn = new _430450600
+    mf_conn.designator_prefix = "J"
+    mf_conn._1 ~ can_left.CANL
+    mf_conn._2 ~ pwr.gnd
+    mf_conn._3 ~ can_right.CANL
+    mf_conn._4 ~ can_left.CANH
+    mf_conn._5 ~ pwr.vcc
+    mf_conn._6 ~ can_right.CANH
+
+module CANdiBar:
+    pwr = new Power
+    can_1 = new CAN
+    can_2 = new CAN
+    can_3 = new CAN
+    can_4 = new CAN
+    can_5 = new CAN
+    can_6 = new CAN
+    can_7 = new CAN
+
+    can_term_left = new CAN_Termination
+    can_term_right = new CAN_Termination
+
+    can_term_left.can_e ~ can_1
+
+    port_1 = new CANdiBarPort
+    port_1.pwr ~ pwr
+    port_1.can_left ~ can_1
+    port_1.can_right ~ can_2
+
+    port_2 = new CANdiBarPort
+    port_2.pwr ~ pwr
+    port_2.can_left ~ can_2
+    port_2.can_right ~ can_3
+
+    port_3 = new CANdiBarPort
+    port_3.pwr ~ pwr
+    port_3.can_left ~ can_3
+    port_3.can_right ~ can_4
+
+    port_4 = new CANdiBarPort
+    port_4.pwr ~ pwr
+    port_4.can_left ~ can_4
+    port_4.can_right ~ can_5
+
+    port_5 = new CANdiBarPort
+    port_5.pwr ~ pwr
+    port_5.can_left ~ can_5
+    port_5.can_right ~ can_6
+
+    port_6 = new CANdiBarPort
+    port_6.pwr ~ pwr
+    port_6.can_left ~ can_6
+    port_6.can_right ~ can_7
+
+    can_term_right.can_e ~ can_7
+
