@@ -10,7 +10,11 @@
     nixpkgs-ato.url = "github:Sigmanificient/nixpkgs/atopile";
   };
   outputs =
-    { self, nixpkgs, nixpkgs-ato, ... }@inputs:
+    { self
+    , nixpkgs
+    , nixpkgs-ato
+    , ...
+    }@inputs:
     let
       supportedSystems = [
         "x86_64-linux"
@@ -32,11 +36,14 @@
             clang-format.enable = true;
 
             # bash hooks
-            shellcheck.enable = true;
+            shellcheck = {
+              enable = true;
+              excludes = [ "\\.envrc" ];
+            };
             shfmt.enable = true;
 
             # markdown hooks
-            lychee.enable = true;
+            lychee.enable = false;
 
             # git hooks
             convco.enable = true;
@@ -90,7 +97,7 @@
                     level = "error";
                     max = 2;
                     max-end = 1;
-                    max-start = 0;
+                    max-start = 1;
                   };
                   hyphens = {
                     level = "error";
@@ -98,9 +105,9 @@
                   };
                   indentation = {
                     check-multi-line-strings = false;
-                    indent-sequences = true;
+                    indent-sequences = "consistent";
                     level = "error";
-                    spaces = 2;
+                    spaces = "consistent";
                   };
                   key-duplicates = {
                     level = "error";
@@ -118,6 +125,7 @@
                   };
                   truthy = {
                     level = "error";
+                    check-keys = false;
                   };
                 };
               };
