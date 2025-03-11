@@ -365,7 +365,7 @@
 			(uuid "a7299f87-3d3b-48ed-bba3-4a8398d7d39d")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 1.27 360)
+			(at 0 1.27 0)
 			(layer "F.Fab")
 			(uuid "41eb0553-a9f0-4050-8c55-68b450117f1a")
 			(effects
@@ -412,7 +412,7 @@
 		(uuid "1a97db1f-b26d-4378-b2b0-603c1cefce0d")
 		(at 111 89)
 		(property "Reference" "J4"
-			(at 5.25 -2.75 360)
+			(at 5.25 -2.75 0)
 			(layer "F.SilkS")
 			(uuid "da31cc7a-e1fa-442a-b41a-ddade18379d6")
 			(effects
@@ -423,7 +423,7 @@
 			)
 		)
 		(property "Value" "?"
-			(at 0 5.5 360)
+			(at 0 5.5 0)
 			(layer "F.Fab")
 			(uuid "b74dd64a-7ef4-4b11-b19d-28817df4ea8b")
 			(effects
@@ -434,7 +434,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "9f8b276b-bf65-423c-83ce-514dfc4a9984")
@@ -446,7 +446,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "02360957-25a3-492b-bc22-c0aeb7db8998")
@@ -458,7 +458,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "f85feadf-d038-4105-90dd-7cec27c8071b")
@@ -710,7 +710,7 @@
 			(uuid "ad932e11-08c9-4a7b-a3ee-4240defe3d13")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "F.Fab")
 			(uuid "403af154-a313-4a0c-ade9-7e8c608402b5")
 			(effects
@@ -807,7 +807,7 @@
 		(descr "Mounting Hole 3.2mm, M3, DIN965")
 		(tags "mounting hole 3.2mm m3 din965")
 		(property "Reference" "U4"
-			(at 0 -3.8 360)
+			(at 0 -3.8 0)
 			(layer "F.SilkS")
 			(hide yes)
 			(uuid "d690e827-b0fa-4c72-8e2c-fe6c019686e5")
@@ -819,7 +819,7 @@
 			)
 		)
 		(property "Value" "?"
-			(at 0 3.8 360)
+			(at 0 3.8 0)
 			(layer "F.Fab")
 			(uuid "956f46be-1f94-45fe-b235-2612fb1c90be")
 			(effects
@@ -893,7 +893,7 @@
 			(uuid "b70b4f7b-bd3a-4d13-959b-f5793a6ca042")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "F.Fab")
 			(uuid "3cbe91df-dfc8-42ba-a356-1dabb1cd9a33")
 			(effects
@@ -1336,7 +1336,7 @@
 		(descr "Mounting Hole 3.2mm, M3, DIN965")
 		(tags "mounting hole 3.2mm m3 din965")
 		(property "Reference" "U1"
-			(at 0 -3.8 360)
+			(at 0 -3.8 0)
 			(layer "F.SilkS")
 			(hide yes)
 			(uuid "81fa1c5d-5e82-460e-acb1-015fee99b6c3")
@@ -1348,7 +1348,7 @@
 			)
 		)
 		(property "Value" "?"
-			(at 0 3.8 360)
+			(at 0 3.8 0)
 			(layer "F.Fab")
 			(uuid "d4c4a773-eab9-419b-b12f-c5848ebd23d5")
 			(effects
@@ -1422,7 +1422,7 @@
 			(uuid "0324d5d4-59e7-4435-8637-f52d1b87acbe")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "F.Fab")
 			(uuid "3a64716e-4e9b-4333-876d-004ee03d29fa")
 			(effects
@@ -1450,7 +1450,7 @@
 		(descr "Through hole straight pin header, 2x02, 2.54mm pitch, double rows")
 		(tags "Through hole pin header THT 2x02 2.54mm double row")
 		(property "Reference" "J9"
-			(at 5.5525 2.57 360)
+			(at 5.5525 2.57 0)
 			(layer "F.SilkS")
 			(uuid "243c9151-365f-4bb3-b5f2-ee2dcb11a2d1")
 			(effects
@@ -1461,7 +1461,7 @@
 			)
 		)
 		(property "Value" "?"
-			(at 1.27 4.87 360)
+			(at 1.27 4.87 0)
 			(layer "F.Fab")
 			(uuid "ec101565-e9a0-42b1-a848-3d23936f2df2")
 			(effects
@@ -2166,7 +2166,7 @@
 		(descr "Through hole straight pin header, 2x02, 2.54mm pitch, double rows")
 		(tags "Through hole pin header THT 2x02 2.54mm double row")
 		(property "Reference" "J3"
-			(at 5.5525 2.57 360)
+			(at 5.5525 2.57 0)
 			(layer "F.SilkS")
 			(uuid "8630f4a5-abc7-4b69-ac44-ccfb6573afb8")
 			(effects
@@ -2177,7 +2177,7 @@
 			)
 		)
 		(property "Value" "?"
-			(at 1.27 4.87 360)
+			(at 1.27 4.87 0)
 			(layer "F.Fab")
 			(uuid "2554c36b-269d-4b41-b000-6feed74ec546")
 			(effects
@@ -2469,7 +2469,7 @@
 		(descr "Through hole straight pin header, 1x02, 2.54mm pitch, single row")
 		(tags "Through hole pin header THT 1x02 2.54mm single row")
 		(property "Reference" "JP1"
-			(at 0 5.3 360)
+			(at 0 5.3 0)
 			(layer "F.SilkS")
 			(uuid "4f9b405a-695d-420e-bc40-2bb1d7112297")
 			(effects
@@ -2480,7 +2480,7 @@
 			)
 		)
 		(property "Value" "?"
-			(at 0 4.87 360)
+			(at 0 4.87 0)
 			(layer "F.Fab")
 			(uuid "a22ec676-35fe-49d4-be8d-e4aa0e684823")
 			(effects
@@ -2731,7 +2731,7 @@
 		(descr "Mounting Hole 3.2mm, M3, DIN965")
 		(tags "mounting hole 3.2mm m3 din965")
 		(property "Reference" "U2"
-			(at 0 -3.8 360)
+			(at 0 -3.8 0)
 			(layer "F.SilkS")
 			(hide yes)
 			(uuid "940f4266-a199-446e-b389-38ea04458e14")
@@ -2743,7 +2743,7 @@
 			)
 		)
 		(property "Value" "?"
-			(at 0 3.8 360)
+			(at 0 3.8 0)
 			(layer "F.Fab")
 			(uuid "f2537475-12a4-4f75-ba1b-70983392c744")
 			(effects
@@ -2817,7 +2817,7 @@
 			(uuid "8b5eae76-2294-4c92-9b8d-f0c058039899")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "F.Fab")
 			(uuid "edb1da30-114c-4539-b994-70de21f3a69d")
 			(effects
@@ -2843,7 +2843,7 @@
 		(uuid "78c1f01c-5890-461f-af15-73dc43fe8285")
 		(at 164 89)
 		(property "Reference" "J12"
-			(at 5.25 -2.75 360)
+			(at 5.25 -2.75 0)
 			(layer "F.SilkS")
 			(uuid "bb307bfa-4048-4d00-ab0b-502b713b5cb4")
 			(effects
@@ -2854,7 +2854,7 @@
 			)
 		)
 		(property "Value" "?"
-			(at 0 5.5 360)
+			(at 0 5.5 0)
 			(layer "F.Fab")
 			(uuid "17a69172-8b50-4752-bfde-b5cd4d2eeb3e")
 			(effects
@@ -2865,7 +2865,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "40c2d0f0-9b07-4205-adc2-a76a474d9d26")
@@ -2877,7 +2877,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "13524c4a-26ba-4bc9-889c-511a9554bf48")
@@ -2889,7 +2889,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "f21481de-8e3f-403c-b16e-33ba5304863a")
@@ -3141,7 +3141,7 @@
 			(uuid "be6d00da-7420-466b-a043-082619e08b01")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "F.Fab")
 			(uuid "53de28b2-34e0-49a6-bbe2-5fdfd24c8275")
 			(effects
@@ -3445,7 +3445,7 @@
 		(descr "Mounting Hole 3.2mm, M3, DIN965")
 		(tags "mounting hole 3.2mm m3 din965")
 		(property "Reference" "U3"
-			(at 0 -3.8 360)
+			(at 0 -3.8 0)
 			(layer "F.SilkS")
 			(hide yes)
 			(uuid "2183afff-1ec1-4752-9305-4914b9c4291d")
@@ -3457,7 +3457,7 @@
 			)
 		)
 		(property "Value" "?"
-			(at 0 3.8 360)
+			(at 0 3.8 0)
 			(layer "F.Fab")
 			(uuid "ae766a93-e18c-46a7-9b50-08feb10c97d2")
 			(effects
@@ -3531,7 +3531,7 @@
 			(uuid "b50abad8-93e4-44dc-ad85-d477d8cc3ac7")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "F.Fab")
 			(uuid "c15132e3-de66-441a-92e0-fd49108415e8")
 			(effects
@@ -3907,7 +3907,7 @@
 		(descr "Through hole straight pin header, 2x02, 2.54mm pitch, double rows")
 		(tags "Through hole pin header THT 2x02 2.54mm double row")
 		(property "Reference" "J7"
-			(at 5.5525 2.57 360)
+			(at 5.5525 2.57 0)
 			(layer "F.SilkS")
 			(uuid "6a1736e9-63c8-49d4-8eb6-5e3466aba223")
 			(effects
@@ -3918,7 +3918,7 @@
 			)
 		)
 		(property "Value" "?"
-			(at 1.27 4.87 360)
+			(at 1.27 4.87 0)
 			(layer "F.Fab")
 			(uuid "c5d54529-b0f7-4bfd-a47a-f0d0920d5b20")
 			(effects
@@ -4207,7 +4207,7 @@
 		(uuid "94d20a3d-aebf-41cf-ac27-f8643f9290fa")
 		(at 150.75 89)
 		(property "Reference" "J10"
-			(at 5.25 -2.75 360)
+			(at 5.25 -2.75 0)
 			(layer "F.SilkS")
 			(uuid "f4f78ca3-a592-4f78-9071-ad4e53257123")
 			(effects
@@ -4218,7 +4218,7 @@
 			)
 		)
 		(property "Value" "?"
-			(at 0 5.5 360)
+			(at 0 5.5 0)
 			(layer "F.Fab")
 			(uuid "13271dec-b16f-44fe-8f28-d8b30ae937bc")
 			(effects
@@ -4229,7 +4229,7 @@
 			)
 		)
 		(property "Footprint" "lib:CONN-TH_43045-0600"
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "3e673763-83ff-45c1-99e3-7067f713edb7")
@@ -4241,7 +4241,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "56c546cc-bd58-48c7-9a4e-d704f169a6c2")
@@ -4253,7 +4253,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "a9b7229a-75d4-4c8c-9e54-0b7633c3a3c0")
@@ -4505,7 +4505,7 @@
 			(uuid "2dfbb4ea-b503-4a76-bb27-eda6c16547dc")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "F.Fab")
 			(uuid "6f45d904-3625-417e-9b8d-2ca465108903")
 			(effects
@@ -4602,7 +4602,7 @@
 		(descr "Through hole straight pin header, 2x02, 2.54mm pitch, double rows")
 		(tags "Through hole pin header THT 2x02 2.54mm double row")
 		(property "Reference" "J11"
-			(at 5.8025 2.57 360)
+			(at 5.8025 2.57 0)
 			(layer "F.SilkS")
 			(uuid "c08cdccd-0a80-43ef-82b1-a199e8cf999b")
 			(effects
@@ -4613,7 +4613,7 @@
 			)
 		)
 		(property "Value" "?"
-			(at 1.27 4.87 360)
+			(at 1.27 4.87 0)
 			(layer "F.Fab")
 			(uuid "09bd7dc1-4815-40b6-80ff-98101fbff9f2")
 			(effects
@@ -5117,7 +5117,7 @@
 			(uuid "99a22578-8aef-432e-8649-827010e3604e")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 1.27 360)
+			(at 0 1.27 0)
 			(layer "F.Fab")
 			(uuid "61cde2f0-2e3c-4a95-bddb-fbf74df98dff")
 			(effects
@@ -5719,7 +5719,7 @@
 		(uuid "c76ae9b4-d3d0-4311-bb21-e8a85a264ab1")
 		(at 137.5 89)
 		(property "Reference" "J8"
-			(at 5.25 -2.75 360)
+			(at 5.25 -2.75 0)
 			(layer "F.SilkS")
 			(uuid "4b5a63df-cb1b-42b2-8b45-803e77c17e8b")
 			(effects
@@ -5730,7 +5730,7 @@
 			)
 		)
 		(property "Value" "?"
-			(at 0 5.5 360)
+			(at 0 5.5 0)
 			(layer "F.Fab")
 			(uuid "e3f2f4c5-d37a-4cd9-ba67-32af7a1558ff")
 			(effects
@@ -5741,7 +5741,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "0ed2c527-1152-4227-bd98-c536ebc260b5")
@@ -5753,7 +5753,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "89435aec-7f28-4e51-bd92-110fe5f06d1f")
@@ -5765,7 +5765,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "6d8fe2e6-a40a-45ee-b4c8-e4b622a6d817")
@@ -6017,7 +6017,7 @@
 			(uuid "d8ed638b-804e-4353-a8af-f3084d0e930c")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "F.Fab")
 			(uuid "299a191b-21a0-4dca-aef1-b3a0a04587da")
 			(effects
@@ -6327,7 +6327,7 @@
 			(uuid "aa96029e-3891-4b7c-ae0b-8d747790806f")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 1.27 360)
+			(at 0 1.27 0)
 			(layer "F.Fab")
 			(uuid "3a71308b-76cd-4e1d-b881-81d2075b47b7")
 			(effects
@@ -6589,7 +6589,7 @@
 			(uuid "bb79352b-df47-4fb0-bfab-9fa5c231f1a3")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 1.27 360)
+			(at 0 1.27 0)
 			(layer "F.Fab")
 			(uuid "059a0e1b-1236-4a6b-9779-05bf6559ba71")
 			(effects
@@ -6638,7 +6638,7 @@
 		(descr "Through hole straight pin header, 2x02, 2.54mm pitch, double rows")
 		(tags "Through hole pin header THT 2x02 2.54mm double row")
 		(property "Reference" "J5"
-			(at 5.5525 2.57 360)
+			(at 5.5525 2.57 0)
 			(layer "F.SilkS")
 			(uuid "dcad6cfe-e612-4e83-8f77-3127b7a889c1")
 			(effects
@@ -6649,7 +6649,7 @@
 			)
 		)
 		(property "Value" "?"
-			(at 1.27 4.87 360)
+			(at 1.27 4.87 0)
 			(layer "F.Fab")
 			(uuid "236fc9e0-1803-4f14-a411-ab2e62884155")
 			(effects
@@ -7153,7 +7153,7 @@
 			(uuid "4544919c-6970-4e71-9498-ec6117cf099e")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 1.27 360)
+			(at 0 1.27 0)
 			(layer "F.Fab")
 			(uuid "70039738-4b8e-4168-8ed8-27a6d8111bc9")
 			(effects
@@ -7200,7 +7200,7 @@
 		(uuid "f31ac6e0-5da1-4a9d-bc84-ee292e3f2e9b")
 		(at 124.25 89)
 		(property "Reference" "J6"
-			(at 5.25 -2.75 360)
+			(at 5.25 -2.75 0)
 			(layer "F.SilkS")
 			(uuid "58a72e84-5e9e-48f2-8308-a80eefb25378")
 			(effects
@@ -7211,7 +7211,7 @@
 			)
 		)
 		(property "Value" "?"
-			(at 0 5.5 360)
+			(at 0 5.5 0)
 			(layer "F.Fab")
 			(uuid "821ce3df-171d-4f50-a440-dc816a2965e7")
 			(effects
@@ -7222,7 +7222,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "0cb12026-b8ed-456c-b7e8-16ec00806774")
@@ -7234,7 +7234,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "ec85bea4-f59d-4861-890a-4c68bd4ddb93")
@@ -7246,7 +7246,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "6fe5af90-65bd-47cd-8ccf-3fb11171e1a1")
@@ -7498,7 +7498,7 @@
 			(uuid "55d92fe9-9dba-46ec-9f6a-99403ff82486")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "F.Fab")
 			(uuid "a134e7e8-4a2d-4d8a-b1a3-f791019ee858")
 			(effects
@@ -7672,7 +7672,7 @@
 		(layer "Edge.Cuts")
 		(uuid "e3cb5b61-60f2-42f7-8df7-bf03e7f35af7")
 	)
-	(gr_text "CAN Bus hub, rev {{GITHASH}}"
+	(gr_text "CANdiBar, rev {{GITHASH}}"
 		(at 137.5 84.25 0)
 		(layer "F.SilkS")
 		(uuid "d894e23f-c5ed-4336-947e-ac38e533f04c")
