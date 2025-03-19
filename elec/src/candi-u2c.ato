@@ -1,0 +1,165 @@
+from "generics/connectors.ato" import Connector2Pin, Connector4Pin, Connector6Pin
+from "generics/interfaces.ato" import Power, CAN, CAN_TTL, USB2, SWD
+from "generics/resistors.ato" import Resistor
+from "generics/capacitors.ato" import Capacitor, CapacitorElectrolytics
+from "sn65hvd230dr/elec/src/sn65hvd230dr.ato" import SN65HVD230DR
+from "STM32F072CBT6.ato" import STM32F072CBT6
+from "X50328MSB2GI.ato" import X50328MSB2GI
+from "SM24CANB_minus_02HTG_C2937019.ato" import SM24CANB_minus_02HTG_C2937019
+
+
+module CAN_Split_termination:
+    can = new CAN
+    pwr = new Power
+
+    r_H = new Resistor
+    r_H.footprint = "R0402"
+    r_H.value = 60Ω +/- 1%
+
+    r_L = new Resistor
+    r_L.footprint = "R0402"
+    r_L.value = 60Ω +/- 1%
+
+    c_filter = new Capacitor
+    c_filter.footprint = "C0402"
+    c_filter.value = 4.7nF +/- 10%
+
+    r_L.p1 ~ can.CANL
+    r_L.p2 ~ pwr.vcc
+    r_H.p1 ~ can.CANH
+    r_H.p2 ~ pwr.vcc
+
+    c_filter.power ~ pwr
+
+
+
+module Candi_U2C:
+    can_bus = new CAN
+    usb_conn = new USB2
+    swd = new SWD
+    signal boot0
+
+    pwr3_3 = new Power
+    pwr3_3.voltage = 3.3V +/- 10%
+    pwr3_3.gnd ~ usb_conn.gnd
+
+    stm32 = new STM32F072CBT6
+
+    pwr3_3.vcc ~ stm32.VBAT
+    pwr3_3.vcc ~ stm32.VDDA
+    pwr3_3.vcc ~ stm32.VDD
+    pwr3_3.vcc ~ stm32.VDDIO
+    pwr3_3.gnd ~ stm32.VSSA
+    pwr3_3.gnd ~ stm32.VSS
+
+
+    c_filter1 = new Capacitor
+    c_filter1.footprint = "C0402"
+    c_filter1.value = 4.7uF +/- 10%
+    c_filter1.power ~ pwr3_3
+
+    c_filter2 = new Capacitor
+    c_filter2.footprint = "C0402"
+    c_filter2.value = 4.7uF +/- 10%
+    c_filter2.power ~ pwr3_3
+
+    c_filter3 = new Capacitor
+    c_filter3.footprint = "C0402"
+    c_filter3.value = 4.7uF +/- 10%
+    c_filter3.power ~ pwr3_3
+
+    c_filter4 = new Capacitor
+    c_filter4.footprint = "C0402"
+    c_filter4.value = 0.1uF +/- 10%
+    c_filter4.power ~ pwr3_3
+
+    c_filter5 = new Capacitor
+    c_filter5.footprint = "C0402"
+    c_filter5.value = 0.1uF +/- 10%
+    c_filter5.power ~ pwr3_3
+
+    c_filter6 = new Capacitor
+    c_filter6.footprint = "C0402"
+    c_filter6.value = 0.1uF +/- 10%
+    c_filter6.power ~ pwr3_3
+
+    c_filter7 = new Capacitor
+    c_filter7.footprint = "C0402"
+    c_filter7.value = 0.1uF +/- 10%
+    c_filter7.power ~ pwr3_3
+
+    c_filter8 = new Capacitor
+    c_filter8.footprint = "C0402"
+    c_filter8.value = 0.1uF +/- 10%
+    c_filter8.power ~ pwr3_3
+
+
+    stm32.PA13 ~ swd.swdio
+    stm32.PA14 ~ swd.swclk
+
+    stm32.BOOT0 ~ boot0
+    r_boot0 = new Resistor
+    r_boot0.footprint = "R0402"
+    r_boot0.value = 10kΩ +/- 1%
+    stm32.BOOT0 ~ r_boot0.p1; r_boot0.p2 ~ pwr3_3.gnd
+
+    can_trx = new SN65HVD230DR
+    can_trx.can ~ can_bus
+    can_trx.power ~ pwr3_3
+
+    can_term = new CAN_Split_termination
+    can_term.can ~ can_bus
+    can_term.pwr.vcc ~ can_trx.ic.VREF
+    can_term.pwr.gnd ~ pwr3_3.gnd
+
+    can_esd = new SM24CANB_minus_02HTG_C2937019
+    can_esd._1 ~ can_bus.CANL
+    can_esd._2 ~ can_bus.CANH
+    can_esd._3 ~ pwr3_3.gnd
+
+    can_trx.can_ttl.tx ~ stm32.PB9
+    can_trx.can_ttl.rx ~ stm32.PB8
+
+    c_filter_trx = new Capacitor
+    c_filter_trx.footprint = "C0402"
+    c_filter_trx.value = 100nF +/- 10%
+    c_filter_trx.power ~ pwr3_3
+
+
+
+    crystal = new X50328MSB2GI
+    crystal.OSC1 ~ stm32.PF0_slash_OSC_IN
+    crystal.OSC2 ~ stm32.PF1_slash_OSC_OUT
+    c_osc_1 = new Capacitor
+    c_osc_2 = new Capacitor
+
+    c_osc_1.package = "0402"
+    c_osc_2.package = "0402"
+    c_osc_1.value = 20pF +/- 10%
+    c_osc_2.value = 20pF +/- 10%
+
+    crystal.OSC1 ~ c_osc_1.p2
+    crystal.OSC2 ~ c_osc_2.p2
+    c_osc_1.p1 ~ pwr3_3.gnd
+    c_osc_2.p1 ~ pwr3_3.gnd
+
+    r_usbP = new Resistor
+    r_usbP.footprint = "R0402"
+    r_usbP.value = 22Ω +/- 1%
+    stm32.PA12 ~ r_usbP.p1; r_usbP.p2 ~ usb_conn.dp
+
+    r_usbN = new Resistor
+    r_usbN.footprint = "R0402"
+    r_usbN.value = 22Ω +/- 1%
+    stm32.PA11 ~ r_usbN.p1; r_usbN.p2 ~ usb_conn.dm
+
+
+    r_rst = new Resistor
+    r_rst.footprint = "R0402"
+    r_rst.value = 10kΩ +/- 1%
+    stm32.NRST ~ r_rst.p1; r_rst.p2 ~ pwr3_3.vcc
+    c_rst = new Capacitor
+    c_rst.footprint = "C0402"
+    c_rst.value = 100nF +/- 10%
+    stm32.NRST ~ c_rst.p1; c_rst.p2 ~ pwr3_3.gnd
+

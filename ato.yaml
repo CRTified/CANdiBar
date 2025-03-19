@@ -3,7 +3,11 @@ builds:
   default:
     entry: elec/src/candi-bar.ato:CANdiBar
 dependencies:
-  - name: generics
-    version_spec: '@93de318f38c5acb079fb5cfc9d5a06dc5f02b157'
-    link_broken: true
-    path: elec/src/generics
+- name: generics
+  version_spec: '@93de318f38c5acb079fb5cfc9d5a06dc5f02b157'
+  link_broken: true
+  path: elec/src/generics
+- name: https://github.com/napowderly/sn65hvd230dr
+  version_spec:
+  link_broken: true
+  path: elec/src/sn65hvd230dr

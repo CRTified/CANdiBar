@@ -1,0 +1,55 @@
+component STM32F072CBT6:
+    # component STM32F072CBT6
+    footprint = "LQFP-48_L7.0-W7.0-P0.50-LS9.0-BL"
+    lcsc_id = "C81720"
+    mpn = "C81720"
+    # pins
+    signal VBAT ~ pin 1
+    signal PC13 ~ pin 2
+    signal PC14_slash_OSC32_IN ~ pin 3
+    signal PC15_slash_OSC32_OUT ~ pin 4
+    signal PF0_slash_OSC_IN ~ pin 5
+    signal PF1_slash_OSC_OUT ~ pin 6
+    signal NRST ~ pin 7
+    signal VSSA ~ pin 8
+    signal VDDA ~ pin 9
+    signal PA0 ~ pin 10
+    signal PA1 ~ pin 11
+    signal PA2 ~ pin 12
+    signal PA3 ~ pin 13
+    signal PA4 ~ pin 14
+    signal PA5 ~ pin 15
+    signal PA6 ~ pin 16
+    signal PA7 ~ pin 17
+    signal PB0 ~ pin 18
+    signal PB1 ~ pin 19
+    signal PB2 ~ pin 20
+    signal PB10 ~ pin 21
+    signal PB11 ~ pin 22
+    signal VSS ~ pin 23
+    signal VDD ~ pin 24
+    signal PB12 ~ pin 25
+    signal PB13 ~ pin 26
+    signal PB14 ~ pin 27
+    signal PB15 ~ pin 28
+    signal PA8 ~ pin 29
+    signal PA9 ~ pin 30
+    signal PA10 ~ pin 31
+    signal PA11 ~ pin 32
+    signal PA12 ~ pin 33
+    signal PA13 ~ pin 34
+    VSS ~ pin 35
+    signal VDDIO ~ pin 36
+    signal PA14 ~ pin 37
+    signal PA15 ~ pin 38
+    signal PB3 ~ pin 39
+    signal PB4 ~ pin 40
+    signal PB5 ~ pin 41
+    signal PB6 ~ pin 42
+    signal PB7 ~ pin 43
+    signal BOOT0 ~ pin 44
+    signal PB8 ~ pin 45
+    signal PB9 ~ pin 46
+    VSS ~ pin 47
+    VDD ~ pin 48
+

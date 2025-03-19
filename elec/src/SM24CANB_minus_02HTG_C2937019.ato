@@ -1,0 +1,10 @@
+component SM24CANB_minus_02HTG_C2937019:
+    # component SM24CANB_minus_02HTG_C2937019
+    footprint = "SOT-23-3_L2.9-W1.3-P1.90-LS2.4-BR"
+    lcsc_id = "C2937019"
+    mpn = "C2937019"
+    # pins
+    signal _2 ~ pin 2
+    signal _1 ~ pin 1
+    signal _3 ~ pin 3
+

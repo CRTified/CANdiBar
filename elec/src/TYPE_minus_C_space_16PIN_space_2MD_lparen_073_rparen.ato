@@ -1,0 +1,21 @@
+component TYPE_minus_C_space_16PIN_space_2MD_lparen_073_rparen:
+    # component TYPE_minus_C_space_16PIN_space_2MD_lparen_073_rparen
+    footprint = "USB-C-SMD_TYPE-C-6PIN-2MD-073"
+    lcsc_id = "C2765186"
+    mpn = "C2765186"
+    # pins
+    signal GND ~ pin 1
+    signal VBUS ~ pin 2
+    signal SBU2 ~ pin 3
+    signal CC1 ~ pin 4
+    signal DN2 ~ pin 5
+    signal DP1 ~ pin 6
+    signal DN1 ~ pin 7
+    signal DP2 ~ pin 8
+    signal SBU1 ~ pin 9
+    signal CC2 ~ pin 10
+    VBUS ~ pin 11
+    GND ~ pin 12
+    signal SHELL ~ pin 13
+    SHELL ~ pin 14
+

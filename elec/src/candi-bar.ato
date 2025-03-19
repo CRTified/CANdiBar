@@ -1,8 +1,10 @@
 from "generics/connectors.ato" import Connector2Pin, Connector4Pin, Connector6Pin
-from "generics/interfaces.ato" import Power, CAN
+from "generics/interfaces.ato" import Power, CAN, CAN_TTL, USB2
 from "generics/resistors.ato" import Resistor
 from "_430450600.ato" import _430450600
+from "candi-u2c.ato" import Candi_U2C
 from "DB127V_minus_5_period_08_minus_2P_minus_GN_minus_S.ato" import DB127V_minus_5_period_08_minus_2P_minus_GN_minus_S
+from "TYPE_minus_C_space_16PIN_space_2MD_lparen_073_rparen.ato" import TYPE_minus_C_space_16PIN_space_2MD_lparen_073_rparen
 
 component MountingHole_M3_Pad:
     signal pad ~ pin 1
@@ -38,11 +40,42 @@ component PinHeader_1x2_254 from Connector2Pin:
     lcsc_id = "C7494857"
     mpn = "C7494857"
 
+
+module USBC_20:
+    usb = new USB2
+    pwr = new Power
+    pwr.gnd ~ usb.gnd
+
+    jack = new TYPE_minus_C_space_16PIN_space_2MD_lparen_073_rparen
+
+    r_cc1 = new Resistor
+    r_cc1.footprint = "R0402"
+    r_cc1.value = 5100Ω +/- 1%
+    r_cc1.p2 ~ pwr.gnd
+
+    r_cc2 = new Resistor
+    r_cc2.footprint = "R0402"
+    r_cc2.value = 5100Ω +/- 1%
+    r_cc2.p2 ~ pwr.gnd
+
+    jack.GND   ~ pwr.gnd
+    jack.VBUS  ~ pwr.vcc
+
+    jack.CC1   ~ r_cc1.p1
+    jack.DN2   ~ usb.dm
+    jack.DP1   ~ usb.dp
+    jack.DN1   ~ usb.dm
+    jack.DP2   ~ usb.dp
+
+    jack.CC2   ~ r_cc2.p1
+    jack.SHELL ~ pwr.gnd
+
+
 module CAN_Termination:
     can_e = new CAN
     sel = new PinHeader_1x2_254
     r_term = new Resistor
-    r_term.footprint = "R0603"
+    r_term.footprint = "R0402"
     r_term.value = 120Ω +/- 1%
     can_e.CANH ~ r_term.p1
     r_term.p2 ~ sel.p1
@@ -54,7 +87,7 @@ module CANdiBarPort:
     pwr = new Power
 
     r_term = new Resistor
-    r_term.footprint = "R0603"
+    r_term.footprint = "R0402"
     r_term.value = 120Ω +/- 1%
 
     bypass_H = new PinHeader_2x2_254
@@ -86,6 +119,7 @@ module CANdiBar:
     can_5 = new CAN
     can_6 = new CAN
 
+
     mount_1 = new MountingHole_M3_Pad; mount_1.pad ~ pwr.gnd
     mount_2 = new MountingHole_M3_Pad; mount_2.pad ~ pwr.gnd
     mount_3 = new MountingHole_M3_Pad; mount_3.pad ~ pwr.gnd
@@ -99,8 +133,7 @@ module CANdiBar:
     power_input2._1 ~ pwr.gnd
     power_input2._2 ~ pwr.vcc
 
-    can_term = new CAN_Termination
-    can_term.can_e ~ can_6
+    usb_j1 = new USBC_20; usb_j1.usb.gnd ~ pwr.gnd
 
     port_1 = new CANdiBarPort
     port_1.pwr ~ pwr
@@ -111,6 +144,7 @@ module CANdiBar:
     port_2.pwr ~ pwr
     port_2.can_left ~ can_3
     port_2.can_right ~ can_2
+
 
     port_3 = new CANdiBarPort
     port_3.pwr ~ pwr
@@ -127,3 +161,7 @@ module CANdiBar:
     port_5.can_left ~ can_6
     port_5.can_right ~ can_5
 
+    candi_u2c = new Candi_U2C
+    candi_u2c.can_bus ~ can_6
+    candi_u2c.usb_conn ~ usb_j1.usb
+    # TODO candi_u2c.swd ~ swd_header

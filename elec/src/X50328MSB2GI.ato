@@ -1,0 +1,9 @@
+component X50328MSB2GI:
+    # component X50328MSB2GI
+    footprint = "CRYSTAL-SMD_L5.0-W3.2"
+    lcsc_id = "C115962"
+    mpn = "C115962"
+    # pins
+    signal OSC1 ~ pin 1
+    signal OSC2 ~ pin 2
+
