@@ -1,0 +1,17 @@
+component TPD4E05U06DQAR_C138714:
+    # component TPD4E05U06DQAR_C138714
+    footprint = "USON-10_L2.5-W1.0-P0.50-BL"
+    lcsc_id = "C138714"
+    mpn = "C138714"
+    # pins
+    signal D1_plus ~ pin 1
+    signal D1_minus ~ pin 2
+    signal GND ~ pin 3
+    signal D2_plus ~ pin 4
+    signal D2_minus ~ pin 5
+    signal NC ~ pin 6
+    NC ~ pin 7
+    GND ~ pin 8
+    NC ~ pin 9
+    NC ~ pin 10
+

@@ -1,0 +1,15 @@
+import Power from "generics/interfaces.ato"
+import Resistor from "generics/resistors.ato"
+import KT_minus_0603R from "KT_minus_0603R.ato"
+
+module Status_LED:
+    pwr = new Power
+
+    LED = new KT_minus_0603R
+    r_lim = new Resistor
+    r_lim.footprint = "R0402"
+    r_lim.value = (pwr.voltage - 1.9V) / 3mA +/- 5%
+
+    pwr.vcc ~ r_lim.p2
+    r_lim.p1 ~ LED.A
+    LED.K ~ pwr.gnd

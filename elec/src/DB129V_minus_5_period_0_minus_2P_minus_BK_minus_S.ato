@@ -1,0 +1,9 @@
+component DB129V_minus_5_period_0_minus_2P_minus_BK_minus_S:
+    # component DB129V_minus_5_period_0_minus_2P_minus_BK_minus_S
+    footprint = "CONN-TH_2P-P5.00_DB129V-5.0-2P-BK-S"
+    lcsc_id = "C430592"
+    mpn = "C430592"
+    # pins
+    signal _1 ~ pin 1
+    signal _2 ~ pin 2
+

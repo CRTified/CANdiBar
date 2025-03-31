@@ -6,6 +6,8 @@ from "sn65hvd230dr/elec/src/sn65hvd230dr.ato" import SN65HVD230DR
 from "STM32F072CBT6.ato" import STM32F072CBT6
 from "X50328MSB2GI.ato" import X50328MSB2GI
 from "SM24CANB_minus_02HTG_C2937019.ato" import SM24CANB_minus_02HTG_C2937019
+from "P125_minus_1106A0BS116_space_A1.ato" import P125_minus_1106A0BS116_space_A1
+from "status_led.ato" import Status_LED
 
 
 module CAN_Split_termination:
@@ -40,8 +42,8 @@ module Candi_U2C:
     signal boot0
 
     pwr3_3 = new Power
-    pwr3_3.voltage = 3.3V +/- 10%
     pwr3_3.gnd ~ usb_conn.gnd
+
 
     stm32 = new STM32F072CBT6
 
@@ -103,6 +105,14 @@ module Candi_U2C:
     r_boot0.value = 10kΩ +/- 1%
     stm32.BOOT0 ~ r_boot0.p1; r_boot0.p2 ~ pwr3_3.gnd
 
+    prog_hdr = new P125_minus_1106A0BS116_space_A1
+    prog_hdr._1 ~ pwr3_3.gnd
+    prog_hdr._2 ~ pwr3_3.vcc
+    prog_hdr._3 ~ stm32.BOOT0
+    prog_hdr._4 ~ stm32.NRST
+    prog_hdr._5 ~ swd.swclk
+    prog_hdr._6 ~ swd.swdio
+
     can_trx = new SN65HVD230DR
     can_trx.can ~ can_bus
     can_trx.power ~ pwr3_3
@@ -152,6 +162,16 @@ module Candi_U2C:
     r_usbN.footprint = "R0402"
     r_usbN.value = 22Ω +/- 1%
     stm32.PA11 ~ r_usbN.p1; r_usbN.p2 ~ usb_conn.dm
+
+    status_1 = new Status_LED
+    status_1.pwr.vcc ~ stm32.PA0
+    status_1.pwr.voltage = 3.3V
+    status_1.pwr.gnd ~ pwr3_3.gnd
+
+    status_2 = new Status_LED
+    status_2.pwr.vcc ~ stm32.PA1
+    status_2.pwr.voltage = 3.3V
+    status_2.pwr.gnd ~ pwr3_3.gnd
 
 
     r_rst = new Resistor

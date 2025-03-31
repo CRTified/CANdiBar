@@ -1,0 +1,14 @@
+component LP5912_minus_3_period_3DRVR:
+    # component LP5912_minus_3_period_3DRVR
+    footprint = "WSON-6_L2.0-W2.0-P0.65-TL-EP"
+    lcsc_id = "C524780"
+    mpn = "C524780"
+    # pins
+    signal OUT ~ pin 1
+    signal NC ~ pin 2
+    signal PG ~ pin 3
+    signal EN ~ pin 4
+    signal GND ~ pin 5
+    signal IN ~ pin 6
+    signal EP ~ pin 7
+

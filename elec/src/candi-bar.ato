@@ -1,10 +1,15 @@
 from "generics/connectors.ato" import Connector2Pin, Connector4Pin, Connector6Pin
 from "generics/interfaces.ato" import Power, CAN, CAN_TTL, USB2
 from "generics/resistors.ato" import Resistor
+from "generics/capacitors.ato" import Capacitor
 from "_430450600.ato" import _430450600
 from "candi-u2c.ato" import Candi_U2C
-from "DB127V_minus_5_period_08_minus_2P_minus_GN_minus_S.ato" import DB127V_minus_5_period_08_minus_2P_minus_GN_minus_S
+from "DB129V_minus_5_period_0_minus_2P_minus_BK_minus_S.ato" import DB129V_minus_5_period_0_minus_2P_minus_BK_minus_S
 from "TYPE_minus_C_space_16PIN_space_2MD_lparen_073_rparen.ato" import TYPE_minus_C_space_16PIN_space_2MD_lparen_073_rparen
+from "LP5912_minus_3_period_3DRVR.ato" import LP5912_minus_3_period_3DRVR
+from "P125_minus_1104A0CS100A1.ato" import P125_minus_1104A0CS100A1
+from "_824011.ato" import _824011
+from "status_led.ato" import Status_LED
 
 component MountingHole_M3_Pad:
     signal pad ~ pin 1
@@ -44,6 +49,7 @@ component PinHeader_1x2_254 from Connector2Pin:
 module USBC_20:
     usb = new USB2
     pwr = new Power
+    pwr.voltage = 5V
     pwr.gnd ~ usb.gnd
 
     jack = new TYPE_minus_C_space_16PIN_space_2MD_lparen_073_rparen
@@ -70,6 +76,12 @@ module USBC_20:
     jack.CC2   ~ r_cc2.p1
     jack.SHELL ~ pwr.gnd
 
+    tvs = new _824011
+    tvs.GND ~ pwr.gnd
+    tvs.VDD ~ pwr.vcc
+    tvs.I_slash_O1 ~ usb.dp
+    tvs.I_slash_O2 ~ usb.dm
+
 
 module CAN_Termination:
     can_e = new CAN
@@ -86,38 +98,60 @@ module CANdiBarPort:
     can_right = new CAN
     pwr = new Power
 
-    r_term = new Resistor
-    r_term.footprint = "R0402"
-    r_term.value = 120Ω +/- 1%
-
-    bypass_H = new PinHeader_2x2_254
-    bypass_H.p1 ~ can_left.CANH
-    bypass_H.p2 ~ can_right.CANH
-    bypass_H.p4 ~ r_term.p1
-    r_term.p2 ~ can_right.CANL
-
-    bypass_L = new PinHeader_1x2_254
-    bypass_L.p1 ~ can_left.CANL
-    bypass_L.p2 ~ can_right.CANL
+    bypass = new PinHeader_2x2_254
+    bypass.p1 ~ can_left.CANH
+    bypass.p2 ~ can_right.CANH
+    bypass.p3 ~ can_left.CANL
+    bypass.p4 ~ can_right.CANL
 
     # Connect MicroFit output
     mf_conn = new _430450600
     mf_conn.designator_prefix = "J"
-    mf_conn._1 ~ can_left.CANL
-    mf_conn._2 ~ pwr.gnd
-    mf_conn._3 ~ can_right.CANL
-    mf_conn._4 ~ can_left.CANH
-    mf_conn._5 ~ pwr.vcc
-    mf_conn._6 ~ can_right.CANH
+
+    ### Pinout of the microfit connector
+    # side view, looking into the connector, not at the wires
+    # for soldering the connector
+    #
+    #   +-----█-----+
+    #   | 6   5   4 |
+    #   | 3   2   1 |
+    #   +-----------+
+    # ================= <- PCB edge
+    #
+    # With the following mapping:
+    #
+    #  CAN_H1  1 4  CAN_L1
+    #     Vcc  2 5  GND
+    #  CAN_H2  3 6  CAN_L2
+    #
+    # Looking into the connector, it should look like this:
+    #
+    #   +-----█-----+
+    #   | L   -   L |
+    #   | H   +   H |
+    #   +-----------+
+    # ================= <- PCB edge
+    #
+    # The pinout should comply with that of MOAR_CAN by xbst.
+
+    mf_conn._1 ~ can_left.CANH
+    mf_conn._2 ~ pwr.vcc
+    mf_conn._3 ~ can_right.CANH
+    mf_conn._4 ~ can_left.CANL
+    mf_conn._5 ~ pwr.gnd
+    mf_conn._6 ~ can_right.CANL
 
 module CANdiBar:
     pwr = new Power
+    pwr.voltage = 24V +/- 5%
     can_1 = new CAN
     can_2 = new CAN
     can_3 = new CAN
     can_4 = new CAN
     can_5 = new CAN
     can_6 = new CAN
+    can_7 = new CAN
+    can_8 = new CAN
 
 
     mount_1 = new MountingHole_M3_Pad; mount_1.pad ~ pwr.gnd
@@ -125,15 +159,58 @@ module CANdiBar:
     mount_3 = new MountingHole_M3_Pad; mount_3.pad ~ pwr.gnd
     mount_4 = new MountingHole_M3_Pad; mount_4.pad ~ pwr.gnd
 
-    power_input1 = new DB127V_minus_5_period_08_minus_2P_minus_GN_minus_S
+    power_input1 = new DB129V_minus_5_period_0_minus_2P_minus_BK_minus_S
     power_input1._1 ~ pwr.gnd
     power_input1._2 ~ pwr.vcc
 
-    power_input2 = new DB127V_minus_5_period_08_minus_2P_minus_GN_minus_S
+    power_input2 = new DB129V_minus_5_period_0_minus_2P_minus_BK_minus_S
     power_input2._1 ~ pwr.gnd
     power_input2._2 ~ pwr.vcc
 
     usb_j1 = new USBC_20; usb_j1.usb.gnd ~ pwr.gnd
+
+    usb_pinhdr = new P125_minus_1104A0CS100A1
+    usb_pinhdr._1 ~ usb_j1.pwr.gnd
+    usb_pinhdr._2 ~ usb_j1.usb.dm
+    usb_pinhdr._3 ~ usb_j1.usb.dp
+    usb_pinhdr._4 ~ usb_j1.pwr.vcc
+
+    usb_status = new Status_LED
+    usb_status.pwr ~ usb_j1.pwr
+
+
+
+    status_main = new Status_LED
+    status_main.pwr ~ pwr
+
+    pwr_3_3 = new Power
+    pwr_3_3.voltage = 3.3V
+    pwr_3_3.gnd ~ pwr.gnd
+
+    pwr_3_3_status = new Status_LED
+    pwr_3_3_status.pwr ~ pwr_3_3
+
+    ldo_3_3 = new LP5912_minus_3_period_3DRVR
+    ldo_3_3.GND ~ pwr_3_3.gnd
+    ldo_3_3.OUT ~ pwr_3_3.vcc
+    ldo_3_3.IN ~ usb_j1.pwr.vcc
+    ldo_3_3.EN ~ usb_j1.pwr.vcc
+    ldo_3_3.EP ~ pwr_3_3.gnd
+
+    c_ldo_filter1 = new Capacitor
+    c_ldo_filter1.footprint = "C0402"
+    c_ldo_filter1.value = 1uF +/- 20%
+    c_ldo_filter1.power ~ usb_j1.pwr
+
+    c_ldo_filter2 = new Capacitor
+    c_ldo_filter2.footprint = "C0402"
+    c_ldo_filter2.value = 1uF +/- 20%
+    c_ldo_filter2.power ~ pwr_3_3
+
+    candi_u2c = new Candi_U2C
+    candi_u2c.pwr3_3 ~ pwr_3_3
+    candi_u2c.can_bus ~ can_1
+    candi_u2c.usb_conn ~ usb_j1.usb
 
     port_1 = new CANdiBarPort
     port_1.pwr ~ pwr
@@ -161,7 +238,15 @@ module CANdiBar:
     port_5.can_left ~ can_6
     port_5.can_right ~ can_5
 
-    candi_u2c = new Candi_U2C
-    candi_u2c.can_bus ~ can_6
-    candi_u2c.usb_conn ~ usb_j1.usb
-    # TODO candi_u2c.swd ~ swd_header
+    port_6 = new CANdiBarPort
+    port_6.pwr ~ pwr
+    port_6.can_left ~ can_7
+    port_6.can_right ~ can_6
+
+    port_7 = new CANdiBarPort
+    port_7.pwr ~ pwr
+    port_7.can_left ~ can_8
+    port_7.can_right ~ can_7
+
+    can_term = new CAN_Termination
+    can_term.can_e ~ can_8

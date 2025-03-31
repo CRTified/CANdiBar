@@ -1,0 +1,12 @@
+component _824011:
+    # component _824011
+    footprint = "SOT-23-5_L2.9-W1.6-P0.95-LS2.8-BR"
+    lcsc_id = "C22358704"
+    mpn = "C22358704"
+    # pins
+    signal NC ~ pin 1
+    signal GND ~ pin 2
+    signal I_slash_O1 ~ pin 3
+    signal I_slash_O2 ~ pin 4
+    signal VDD ~ pin 5
+
