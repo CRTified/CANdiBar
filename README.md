@@ -1,4 +1,16 @@
-# CANdiBar Hub
+# CANdiBar
+
+## IMPORTANT
+
+This project is heavily WIP. It is not tested, do not assume that it
+works and that it fulfills all stated features
+
+
+## Pictures
+
+![The front view of the CANdIBar PCB](candi-bar.png)
+![The back view of the CANdIBar PCB](candi-bar-back.png)
+
 
 ## What is this?
 
@@ -7,9 +19,11 @@ board. However, I wanted to avoid making all devices connected by a stub.
 
 Properties:
 
- - Five ports for a 2x3P Molex MicroFit 3.0
+ - Seven ports for a 2x3P Molex MicroFit 3.0
+ - USB2CAN adapter compatible with candlelight
  - Proper CAN setup (No star topology that makes everythin a stub)
- - Termination and pass-through connection possible on every port
+ - Pass-through connection configurable by jumper
+ - Termination on last slot (might require pass-through on multiple ports)
 
 ## Why?
 

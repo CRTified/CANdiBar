@@ -10,7 +10,6 @@ from "LP5912_minus_3_period_3DRVR.ato" import LP5912_minus_3_period_3DRVR
 from "P125_minus_1104A0CS100A1.ato" import P125_minus_1104A0CS100A1
 from "_824011.ato" import _824011
 from "status_led.ato" import Status_LED
-from "_204_minus_211STR.ato" import _204_minus_211STR
 
 component MountingHole_M3_Pad:
     signal pad ~ pin 1
@@ -34,7 +33,7 @@ component PinHeader_2x2_254 from Connector4Pin:
     signal p3 ~ pin 3
     signal p4 ~ pin 4
     footprint = "PinHeader_2x02_P2.54mm_Vertical"
-    designator_prefix = "J"
+    designator_prefix = "JP"
     lcsc_id = "C32713275"
     mpn = "C32713275"
 
@@ -45,6 +44,18 @@ component PinHeader_1x2_254 from Connector2Pin:
     designator_prefix = "JP"
     lcsc_id = "C7494857"
     mpn = "C7494857"
+
+component SMD_PinHeader_2x2_254 from Connector4Pin:
+    # component _2_period_54_minus_2_star_2P_space
+    footprint = "HDR-SMD_4P-P2.54-V-M-R2-C2-LS7.5"
+    lcsc_id = "C919361"
+    mpn = "C919361"
+    designator_prefix = "JP"
+    # pins
+    signal p1 ~ pin 1
+    signal p4 ~ pin 4
+    signal p3 ~ pin 3
+    signal p2 ~ pin 2
 
 
 module USBC_20:
@@ -99,7 +110,7 @@ module CANdiBarPort:
     can_right = new CAN
     pwr = new Power
 
-    bypass = new _204_minus_211STR
+    bypass = new SMD_PinHeader_2x2_254
     bypass.p1 ~ can_left.CANH
     bypass.p2 ~ can_right.CANH
     bypass.p3 ~ can_left.CANL
