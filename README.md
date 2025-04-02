@@ -10,6 +10,8 @@ works and that it fulfills all stated features
 
 ![The front view of the CANdIBar PCB](candi-bar.png)
 ![The back view of the CANdIBar PCB](candi-bar-back.png)
+![A screenshot of the dimensions and PCB editor CANdIBar PCB](candi-bar-pcb-dim.png)
+
 
 
 ## What is this?
