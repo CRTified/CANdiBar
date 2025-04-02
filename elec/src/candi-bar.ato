@@ -10,6 +10,7 @@ from "LP5912_minus_3_period_3DRVR.ato" import LP5912_minus_3_period_3DRVR
 from "P125_minus_1104A0CS100A1.ato" import P125_minus_1104A0CS100A1
 from "_824011.ato" import _824011
 from "status_led.ato" import Status_LED
+from "_204_minus_211STR.ato" import _204_minus_211STR
 
 component MountingHole_M3_Pad:
     signal pad ~ pin 1
@@ -98,7 +99,7 @@ module CANdiBarPort:
     can_right = new CAN
     pwr = new Power
 
-    bypass = new PinHeader_2x2_254
+    bypass = new _204_minus_211STR
     bypass.p1 ~ can_left.CANH
     bypass.p2 ~ can_right.CANH
     bypass.p3 ~ can_left.CANL
