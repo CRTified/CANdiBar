@@ -1,11 +1,1 @@
-component _2_period_54_minus_2_star_2P_space:
-    # component _2_period_54_minus_2_star_2P_space
-    footprint = "HDR-SMD_4P-P2.54-V-M-R2-C2-LS7.5"
-    lcsc_id = "C919361"
-    mpn = "C919361"
-    # pins
-    signal _1 ~ pin 1
-    signal _4 ~ pin 4
-    signal _3 ~ pin 3
-    signal _2 ~ pin 2
 
