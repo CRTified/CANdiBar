@@ -523,7 +523,7 @@
       "gencad": "",
       "idf": "",
       "netlist": "../../../build/default.net",
-      "plot": "",
+      "plot": "plots",
       "pos_files": "",
       "specctra_dsn": "",
       "step": "",

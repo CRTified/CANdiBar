@@ -7,10 +7,12 @@
       url = "github:cachix/git-hooks.nix";
     };
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-ato.url = "github:CRTified/nixpkgs/atopile-3x";
   };
   outputs =
     { self
     , nixpkgs
+    , nixpkgs-ato
     , ...
     }@inputs:
     let
@@ -136,7 +138,7 @@
         default = nixpkgs.legacyPackages.${system}.mkShell {
           inherit (self.checks.${system}.pre-commit-check) shellHook;
           buildInputs =
-            (with nixpkgs.legacyPackages.${system}; [ python312Packages.atopile ])
+            (with nixpkgs-ato.legacyPackages.${system}; [ python313Packages.atopile ])
             ++ self.checks.${system}.pre-commit-check.enabledPackages;
         };
       });
