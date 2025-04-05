@@ -39,16 +39,32 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1743315132,
-        "narHash": "sha256-6hl6L/tRnwubHcA4pfUUtk542wn2Om+D4UnDhlDW9BE=",
+        "lastModified": 1743583204,
+        "narHash": "sha256-F7n4+KOIfWrwoQjXrL2wD9RhFYLs2/GGe/MQY1sSdlE=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "52faf482a3889b7619003c0daec593a1912fddc1",
+        "rev": "2c8d3f48d33929642c1c12cd243df4cc7d2ce434",
         "type": "github"
       },
       "original": {
         "owner": "NixOS",
         "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs-ato": {
+      "locked": {
+        "lastModified": 1743883671,
+        "narHash": "sha256-OE++et1lwwfq1BsR9LVB/ENqNpY4YeCcDf6FeL+ZWfw=",
+        "owner": "CRTified",
+        "repo": "nixpkgs",
+        "rev": "134d39b71414f549e494006e164f352bfc35629f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "CRTified",
+        "ref": "atopile-3x",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -78,6 +94,7 @@
     "root": {
       "inputs": {
         "nixpkgs": "nixpkgs",
+        "nixpkgs-ato": "nixpkgs-ato",
         "pre-commit-hooks": "pre-commit-hooks"
       }
     }
