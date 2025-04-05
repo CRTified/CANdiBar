@@ -55,11 +55,11 @@
     },
     "nixpkgs-ato": {
       "locked": {
-        "lastModified": 1743883671,
-        "narHash": "sha256-OE++et1lwwfq1BsR9LVB/ENqNpY4YeCcDf6FeL+ZWfw=",
+        "lastModified": 1743888092,
+        "narHash": "sha256-+rU+XsC9RbvRIRW62h25Sm3JDKZcjetOLmNJ+65o8a4=",
         "owner": "CRTified",
         "repo": "nixpkgs",
-        "rev": "134d39b71414f549e494006e164f352bfc35629f",
+        "rev": "9ba0ef597ee012bd23c33773216bd1527d1533aa",
         "type": "github"
       },
       "original": {
