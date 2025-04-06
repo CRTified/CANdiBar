@@ -8,7 +8,7 @@ module Status_LED:
     LED = new KT_minus_0603R
     r_lim = new Resistor
     r_lim.footprint = "R0402"
-    r_lim.value = (pwr.voltage - 1.9V) / 3mA +/- 5%
+    r_lim.value = (pwr.voltage - 1.9V) / (2mA to 4mA)
 
     pwr.vcc ~ r_lim.p2
     r_lim.p1 ~ LED.A
