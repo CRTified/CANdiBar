@@ -1,0 +1,9 @@
+component _978_minus_Y_slash_02:
+    # component _978_minus_Y_slash_02
+    footprint = "CONN-TH_978-Y-02"
+    lcsc_id = "C7429185"
+    mpn = "C7429185"
+    # pins
+    signal _1 ~ pin 1
+    signal _2 ~ pin 2
+

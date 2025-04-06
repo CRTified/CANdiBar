@@ -5,6 +5,7 @@ from "generics/capacitors.ato" import Capacitor
 from "_430450600.ato" import _430450600
 from "candi-u2c.ato" import Candi_U2C
 from "DB129V_minus_5_period_0_minus_2P_minus_BK_minus_S.ato" import DB129V_minus_5_period_0_minus_2P_minus_BK_minus_S
+from "_978_minus_Y_slash_02.ato" import _978_minus_Y_slash_02
 from "TYPE_minus_C_space_16PIN_space_2MD_lparen_073_rparen.ato" import TYPE_minus_C_space_16PIN_space_2MD_lparen_073_rparen
 from "LP5912_minus_3_period_3DRVR.ato" import LP5912_minus_3_period_3DRVR
 from "P125_minus_1104A0CS100A1.ato" import P125_minus_1104A0CS100A1
@@ -171,11 +172,11 @@ module CANdiBar:
     mount_3 = new MountingHole_M3_Pad; mount_3.pad ~ pwr.gnd
     mount_4 = new MountingHole_M3_Pad; mount_4.pad ~ pwr.gnd
 
-    power_input1 = new DB129V_minus_5_period_0_minus_2P_minus_BK_minus_S
+    power_input1 = new _978_minus_Y_slash_02
     power_input1._1 ~ pwr.gnd
     power_input1._2 ~ pwr.vcc
 
-    power_input2 = new DB129V_minus_5_period_0_minus_2P_minus_BK_minus_S
+    power_input2 = new _978_minus_Y_slash_02
     power_input2._1 ~ pwr.gnd
     power_input2._2 ~ pwr.vcc
 
