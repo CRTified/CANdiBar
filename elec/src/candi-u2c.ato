@@ -15,19 +15,19 @@ module CAN_Split_termination:
     pwr = new Power
 
     r_H = new Resistor
-    r_H.footprint = "R0402"
+    r_H.footprint = "R1206"
     r_H.value = 120Ω +/- 1%
     r_H2 = new Resistor
-    r_H2.footprint = "R0402"
+    r_H2.footprint = "R1206"
     r_H2.value = 120Ω +/- 1%
     r_H.p1 ~ r_H2.p1
     r_H.p2 ~ r_H2.p2
 
     r_L = new Resistor
-    r_L.footprint = "R0402"
+    r_L.footprint = "R1206"
     r_L.value = 120Ω +/- 1%
     r_L2 = new Resistor
-    r_L2.footprint = "R0402"
+    r_L2.footprint = "R1206"
     r_L2.value = 120Ω +/- 1%
     r_L.p1 ~ r_L2.p1
     r_L.p2 ~ r_L2.p2
