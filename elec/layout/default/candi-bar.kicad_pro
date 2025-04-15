@@ -521,6 +521,14 @@
         "wire_width": 6
       },
       {
+        "clearance": 0.2,
+        "name": "power",
+        "pcb_color": "rgba(0, 0, 0, 0.000)",
+        "priority": 0,
+        "schematic_color": "rgba(0, 0, 0, 0.000)",
+        "track_width": 0.76
+      },
+      {
         "clearance": 0.11,
         "diff_pair_gap": 0.17,
         "diff_pair_width": 0.2,
@@ -528,7 +536,7 @@
         "microvia_drill": 0.1,
         "name": "usbpwr",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 0,
+        "priority": 1,
         "schematic_color": "rgba(0, 0, 0, 0.000)",
         "track_width": 0.4,
         "via_diameter": 0.8,
@@ -544,6 +552,10 @@
       {
         "netclass": "usbpwr",
         "pattern": "usb_j1-vcc"
+      },
+      {
+        "netclass": "power",
+        "pattern": "vcc"
       }
     ]
   },
