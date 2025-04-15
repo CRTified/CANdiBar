@@ -100,7 +100,7 @@ module CAN_Termination:
     can_e = new CAN
     sel = new PinHeader_1x2_254
     r_term = new Resistor
-    r_term.footprint = "R1210"
+    r_term.footprint = "R1206"
     r_term.value = 120Ω +/- 1%
     can_e.CANH ~ r_term.p1
     r_term.p2 ~ sel.p1
