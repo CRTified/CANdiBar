@@ -2,8 +2,8 @@
 
 ## IMPORTANT
 
-This project is heavily WIP. It is not tested, do not assume that it
-works and that it fulfills all stated features
+This project is very experimental. While it works *for me* in my Voron V0.2, do not assume that it
+works for you. Proceed at your own risk.
 
 
 ## Pictures
